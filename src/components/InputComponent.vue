@@ -9,11 +9,11 @@ const props = defineProps({
     type: String,
   },
 })
-const value = defineModel()
+const modelValue = defineModel()
 </script>
 
 <template>
-  <input :type='props.type' :class="['input', props.class]" :placeholder="props.placeholder" :v-model='value' />
+  <input :type='props.type' :class="['input', props.class]" :placeholder="props.placeholder" v-model='modelValue' />
 </template>
 
 <style scoped>

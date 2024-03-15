@@ -20,6 +20,7 @@ const props = defineProps(['class', 'disabled'])
   color: #F8F8F8;
   border: none;
   font-size: 16px;
+  transition: all 0.3s;
 }
 
 .button:disabled {

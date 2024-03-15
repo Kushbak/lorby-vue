@@ -7,12 +7,13 @@ const instance = axios.create({
   }
 })
 
-export const login = async (data) => {
-  const response = await instance.post('login/', data)
-  return response.data
-}
-
-export const register = async (data) => {
-  const response = await instance.post('register/', data)
-  return response.data
+export const authApi = {
+  login: async (data) => {
+    const response = await instance.post('login/', data)
+    return response.data
+  },
+  register: async (data) => {
+    const response = await instance.post('register/', data)
+    return response.data
+  }
 }
