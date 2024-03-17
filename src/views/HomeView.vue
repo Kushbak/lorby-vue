@@ -1,10 +1,12 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { useAuthStore } from '@/stores/auth';
+
+const authStore = useAuthStore()
 </script>
 
 <template>
   <main>
     Home
-    <RouterLink to='/login'>Logout</RouterLink>
+    <button @click="authStore.logout" class='link'>Logout</button>
   </main>
 </template>

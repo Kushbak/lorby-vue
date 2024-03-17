@@ -5,14 +5,18 @@ import AuthLayout from '@/components/AuthLayout.vue'
 import InputComponent from '@/components/InputComponent.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import { useAuthStore } from '@/stores/auth'
+import router from '@/router'
 
 const authStore = useAuthStore()
 
 const username = ref('')
 const password = ref('')
 
-const onSubmit = () => {
-  authStore.login({ username: username.value, password: password.value })
+const onSubmit = async () => {
+  await authStore.login({ username: username.value, password: password.value })
+  if (!authStore.error) {
+    router.push('/')
+  }
 }
 </script>
 

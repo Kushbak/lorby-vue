@@ -21,7 +21,7 @@ const onChange = (val) => {
 const onSubmit = async () => {
   await authStore.submitConfirmationCode(input.value)
   if (!authStore.error) {
-    router.go('/login')
+    router.push('/login')
   }
 }
 </script>

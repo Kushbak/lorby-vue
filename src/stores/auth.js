@@ -14,6 +14,7 @@ export const useAuthStore = defineStore('auth', () => {
     error.value = ''
     try {
       const data = await authApi.login(payload)
+      localStorage.setItem('token', JSON.stringify(data))
       return data
     } catch (e) {
       error.value = ERROR_MESSAGES[e.response.data.error]
@@ -28,7 +29,7 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       const data = await authApi.register(payload)
       localStorage.setItem('temp_email', payload.email)
-      router.go('/confirm_code')
+      router.push('/confirm_code')
       return data
     } catch (e) {
       registerErrors.value = e.response.data.error
@@ -66,5 +67,10 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
-  return { login, register, submitConfirmationCode, resendConfirmationCode, isLoading, error, registerErrors }
+  const logout = () => {
+    localStorage.removeItem('token')
+    router.push('/login')
+  }
+
+  return { login, register, submitConfirmationCode, resendConfirmationCode, logout, isLoading, error, registerErrors }
 })

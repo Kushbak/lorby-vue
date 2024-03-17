@@ -41,7 +41,7 @@ const onSubmit = async () => {
   const result = await v$.value.$validate()
   if (!result) return
   await authStore.register(state)
-  router.go('/confirm_code')
+  router.push('/confirm_code')
 }
 
 const disabled = computed(() => {

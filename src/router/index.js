@@ -10,7 +10,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        auth: true,
+      }
     },
     {
       path: '/login',
@@ -28,6 +31,19 @@ const router = createRouter({
       component: ConfirmationCode
     },
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.auth && !localStorage.getItem('token')) {
+    next('/login')
+    return
+  }
+  if (!to.meta.auth && localStorage.getItem('token')) {
+    next('/')
+    return
+  }
+  next()
+
 })
 
 export default router
