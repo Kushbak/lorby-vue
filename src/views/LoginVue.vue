@@ -23,13 +23,22 @@ const onSubmit = () => {
       <form class='form' @submit.prevent='onSubmit'>
         <InputComponent v-model='username' placeholder='Введите логин' />
         <InputComponent v-model='password' placeholder='Введите пароль' type='password' />
-        {{ authStore.loginError }}
-        <ButtonComponent class='submit' :disabled='authStore.isLoading'>{{ authStore.isLoading ? 'Вход...' :
+        <p class='error' v-if='authStore.error'>
+          {{ authStore.error }}
+        </p>
+        <ButtonComponent class='form__submit' :disabled='authStore.isLoading'>{{ authStore.isLoading ? 'Вход...' :
         'Войти' }}</ButtonComponent>
-        <RouterLink to='/register'>У меня еще нет аккаунта</RouterLink>
+        <p class='link__container'>
+          <RouterLink to='/register' class='link'>У меня еще нет аккаунта</RouterLink>
+        </p>
       </form>
     </div>
   </AuthLayout>
 </template>
 
-<style scoped></style>
+<style scoped>
+.link__container {
+  margin-top: 50px;
+  text-align: center;
+}
+</style>

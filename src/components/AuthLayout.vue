@@ -30,6 +30,8 @@
 }
 
 .auth__content {
+  display: flex;
+  flex-direction: column;
   flex-basis: 50%;
 }
 </style>

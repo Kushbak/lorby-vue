@@ -10,7 +10,6 @@ import { RouterView } from 'vue-router'
 
 <style scoped>
 .app__container {
-  max-height: 100vh;
-  height: 100%;
+  height: 100vh;
 }
 </style>

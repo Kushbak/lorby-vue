@@ -15,5 +15,13 @@ export const authApi = {
   register: async (data) => {
     const response = await instance.post('register/', data)
     return response.data
+  },
+  sendConfirmCode: async (data) => {
+    const response = await instance.post('email-confirm/', data)
+    return response
+  },
+  resendConfirmCode: async (data) => {
+    const response = await instance.post('resend-confirmation-code/', data)
+    return response
   }
 }

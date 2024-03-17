@@ -17,6 +17,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  flex: 1;
 }
 
 .form {
@@ -29,4 +30,15 @@
 
 .form__submit {
   margin: 38px 0;
+}
+
+.link {
+  font-size: 16px;
+  color: #292929;
+  text-decoration: none;
+}
+
+.error {
+  color: crimson;
+  font-size: 13px;
 }
